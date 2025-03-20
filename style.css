@@ -1,0 +1,23 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+
+.sidebar{
+    width: 3%;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
