@@ -3,24 +3,54 @@ body, html{
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    margin: 30px;
+    background-color: bisque;
 }
 
 main{
-    width: 100%;
+    width: 90%;
+    height: 85vh;
     display: flex;
-    height: auto;
+    justify-content: center;
+    place-self: center;
+    border-radius: 70px;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.1);
+    background-color: white;
 }
 
-.sidebar{
-    width: 3%;
-    height: 100vh;
-    background-color: #333;
+main .sidebar{
+    width: 5%;
     display: flex;
+    background-color: rgb(129, 66, 21);
     flex-direction: column;
+    justify-content: start;
     align-items: center;
-    justify-content: center;
-    padding: 10px;
+    padding: 20px;
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
 }
- .dashboard{
-    width: 97%;
- }
+
+.kawa{
+    width: 150px;
+    height: 100px;
+}
+
+main .dashboard{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.dashboard > .box{
+    width: 28%;
+    height: 33vh;
+    margin: 25px;
+    background-color: rgb(132, 132, 132);
+    border-radius: 30px;
+}
+
+
+
+
+
