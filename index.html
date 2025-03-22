@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
@@ -15,7 +15,7 @@
             height: 100%;
             position: relative;
         }
-        #myChart, #myBarChart, #myLineChart, #scatterChart, #doughnutChart {
+        #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy {
             width: 100% !important;
             height: 100% !important;
         }
@@ -41,35 +41,35 @@
 
         <section class="dashboard">
             <section class="box">
-                <canvas id="myChart"></canvas>
+                <canvas id="wykreskolowy"></canvas>
             </section>
 
             <section class="box">
-                <canvas id="myBarChart"></canvas>
+                <canvas id="wykresslupkowy"></canvas>
             </section>
 
             <section class="box">
-                <canvas id="myLineChart"></canvas>
+                <canvas id="wykresliniowy"></canvas>
             </section>
 
             <section class="box">
-                <canvas id="scatterChart"></canvas>
+                <canvas id="wykrespunktowy"></canvas>
             </section>
 
             <section class="box">
-                <canvas id="doughnutChart"></canvas>
+                <canvas id="wykresprocentowy"></canvas>
                 <div class="percentage">75%</div>
             </section>
             
             <section class="box">
-                <canvas id="polarChart"></canvas>
+                <canvas id="wykrespolar"></canvas>
             </section>
         </section>
     </main>
 
     <script>
- var ctx1 = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx1, {
+ var wykres1 = document.getElementById('wykreskolowy').getContext('2d');
+var wykreskolowy = new Chart(wykres1, {
     type: 'pie',
     data: {
         datasets: [{
@@ -86,8 +86,8 @@ var myChart = new Chart(ctx1, {
     }
 });
 
-var ctx2 = document.getElementById('myBarChart').getContext('2d');
-var myBarChart = new Chart(ctx2, {
+var wykres2 = document.getElementById('wykresslupkowy').getContext('2d');
+var wykresslupkowy = new Chart(wykres2, {
     type: 'bar',
     data: {
         labels: ['A', 'B', 'C', 'D'],
@@ -105,8 +105,8 @@ var myBarChart = new Chart(ctx2, {
     }
 });
 
-var ctx3 = document.getElementById('myLineChart').getContext('2d');
-var myLineChart = new Chart(ctx3, {
+var wykres3 = document.getElementById('wykresliniowy').getContext('2d');
+var wykresliniowy = new Chart(wykres3, {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr'],
@@ -125,8 +125,8 @@ var myLineChart = new Chart(ctx3, {
     }
 });
 
-var ctx4 = document.getElementById('scatterChart').getContext('2d');
-var scatterChart = new Chart(ctx4, {
+var wykres4 = document.getElementById('wykrespunktowy').getContext('2d');
+var wykrespunktowy = new Chart(wykres4, {
     type: 'scatter',
     data: {
         datasets: [{
@@ -151,8 +151,8 @@ var scatterChart = new Chart(ctx4, {
     }
 });
 
-var ctx5 = document.getElementById('doughnutChart').getContext('2d');
-var doughnutChart = new Chart(ctx5, {
+var wykres5 = document.getElementById('wykresprocentowy').getContext('2d');
+var wykresprocentowy = new Chart(wykres5, {
     type: 'doughnut',
     data: {
         labels: ['Zapełnione', 'Puste'],
@@ -174,8 +174,8 @@ var doughnutChart = new Chart(ctx5, {
     }
 });
 
-var ctx6 = document.getElementById('polarChart').getContext('2d');
-var polarChart = new Chart(ctx6, {
+var wykres6 = document.getElementById('wykrespolar').getContext('2d');
+var wykrespolar = new Chart(wykres6, {
     type: 'polarArea',
     data: {
         labels: ['9', '8', '7', '2'],
