@@ -68,138 +68,131 @@
     </main>
 
     <script>
-        var ctx1 = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx1, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    label: 'Procent Zapełnienia',
-                    data: [74, 26],
-                    backgroundColor: ['#4caf50', '#e0e0e0'],
-                    borderColor: ['#ffffff', '#ffffff'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(tooltipItem) {
-                                return tooltipItem.raw + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
+ var ctx1 = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+        datasets: [{
+            label: 'Procent Zapełnienia',
+            data: [74, 26],
+            backgroundColor: ['#8B5E3B', '#D7B899'],
+            borderColor: ['#4B2E2A', '#F5E1C8'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
 
-        var ctx2 = document.getElementById('myBarChart').getContext('2d');
-        var myBarChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: ['A', 'B', 'C', 'D'],
-                datasets: [{
-                    label: 'Wartość',
-                    data: [12, 19, 3, 5],
-                    backgroundColor: '#4caf50',
-                    borderColor: '#388e3c',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
+var ctx2 = document.getElementById('myBarChart').getContext('2d');
+var myBarChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['A', 'B', 'C', 'D'],
+        datasets: [{
+            label: 'Wartość',
+            data: [12, 19, 3, 5],
+            backgroundColor: ['#4B2E2A', '#8B5E3B', '#C97C5D', '#D7B899'],
+            borderColor: '#4B2E2A',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
 
-        var ctx3 = document.getElementById('myLineChart').getContext('2d');
-        var myLineChart = new Chart(ctx3, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-                datasets: [{
-                    label: 'Wzrost',
-                    data: [0, 10, 5, 2],
-                    fill: false,
-                    borderColor: '#4caf50',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
+var ctx3 = document.getElementById('myLineChart').getContext('2d');
+var myLineChart = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+        datasets: [{
+            label: 'Wzrost',
+            data: [0, 10, 5, 2],
+            fill: false,
+            borderColor: '#8B5E3B',
+            backgroundColor: '#C97C5D',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
 
-        var ctx4 = document.getElementById('scatterChart').getContext('2d');
-        var scatterChart = new Chart(ctx4, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: 'Wykres Punktowy',
-                    data: [
-                        { x: 9, y: 8 },
-                        { x: 7, y: 2 },
-                        { x: 5, y: 5 }
-                    ],
-                    backgroundColor: 'rgba(75, 192, 192, 1)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { beginAtZero: true },
-                    y: { beginAtZero: true }
-                }
-            }
-        });
+var ctx4 = document.getElementById('scatterChart').getContext('2d');
+var scatterChart = new Chart(ctx4, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Wykres Punktowy',
+            data: [
+                { x: 9, y: 8 },
+                { x: 7, y: 2 },
+                { x: 5, y: 5 }
+            ],
+            backgroundColor: '#C97C5D',
+            borderColor: '#8B5E3B',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: { beginAtZero: true },
+            y: { beginAtZero: true }
+        }
+    }
+});
 
-        var ctx5 = document.getElementById('doughnutChart').getContext('2d');
-        var doughnutChart = new Chart(ctx5, {
-            type: 'doughnut',
-            data: {
-                labels: ['Zapełnione', 'Puste'],
-                datasets: [{
-                    label: 'Procent Zapełnienia',
-                    data: [75, 25],
-                    backgroundColor: ['#2196F3', '#FFFFFF'],
-                    borderColor: ['#FFFFFF', '#FFFFFF'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: {
-                    tooltip: { enabled: false }
-                }
-            }
-        });
+var ctx5 = document.getElementById('doughnutChart').getContext('2d');
+var doughnutChart = new Chart(ctx5, {
+    type: 'doughnut',
+    data: {
+        labels: ['Zapełnione', 'Puste'],
+        datasets: [{
+            label: 'Procent Zapełnienia',
+            data: [75, 25],
+            backgroundColor: ['#8B5E3B', '#D7B899'],
+            borderColor: ['#4B2E2A', '#F5E1C8'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+            tooltip: { enabled: false }
+        }
+    }
+});
 
-        var ctx6 = document.getElementById('polarChart').getContext('2d');
-        var polarChart = new Chart(ctx6, {
-            type: 'polarArea',
-            data: {
-                labels: ['9', '8', '7', '2'],
-                datasets: [{
-                    label: 'Wykres Polar',
-                    data: [9, 8, 7, 2],
-                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F4F433'],
-                    borderColor: '#FFFFFF',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
+var ctx6 = document.getElementById('polarChart').getContext('2d');
+var polarChart = new Chart(ctx6, {
+    type: 'polarArea',
+    data: {
+        labels: ['9', '8', '7', '2'],
+        datasets: [{
+            label: 'Wykres Polar',
+            data: [9, 8, 7, 2],
+            backgroundColor: ['#4B2E2A', '#8B5E3B', '#C97C5D', '#D7B899'],
+            borderColor: '#F5E1C8',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
+
     </script>
 </body>
 </html>
