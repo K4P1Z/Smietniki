@@ -14,14 +14,14 @@ main{
     justify-content: center;
     place-self: center;
     border-radius: 70px;
-    box-shadow: 3px 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1), 0px 6px 20px rgba(255, 228, 196, 0.3);
     background-color: white;
 }
 
 main .sidebar{
     width: 5%;
     display: flex;
-    background-color: rgb(129, 66, 21);
+    background-color: #8B5E3B;
     flex-direction: column;
     justify-content: start;
     align-items: center;
@@ -44,10 +44,21 @@ main .dashboard{
 
 .dashboard > .box{
     width: 28%;
-    height: 33vh;
-    margin: 25px;
-    background-color: rgb(132, 132, 132);
+    height: 32vh;
+    margin: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
     border-radius: 30px;
+    box-shadow: 
+        8px 8px 20px rgba(0, 0, 0, 0.3), 
+        -5px -5px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard > .box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.4), 
+                -7px -7px 20px rgba(255, 255, 255, 0.3);
 }
 
 
