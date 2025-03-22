@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #myBarChart {
+              width: 100px !important; /* Wymuszenie 100px szerokości */
+              height: 100px !important; /* Wymuszenie 100px wysokości */
+          }
+      </style>
+</head>
+
+<body>
+
+    <canvas id="myBarChart" width="100" height="100"></canvas>
+
+<script>
+    var ctx = document.getElementById('myBarChart').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['A', 'B', 'C', 'D'],
+            datasets: [{
+                label: 'Wartość',
+                data: [12, 19, 3, 5],
+                backgroundColor: '#4caf50',
+                borderColor: '#388e3c',
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wykres Polar</title>
+    <style>
+        #polarChart {
+              width: 200px !important; 
+              height: 200px !important;
+          }
+    </style>
+</head>
+<body>
+    <canvas id="polarChart" width="200" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('polarChart').getContext('2d');
+        var polarChart = new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: ['9', '8', '7', '2'],
+                datasets: [{
+                    label: 'Wykres Polar',
+                    data: [9, 8, 7, 2],
+                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F4F433'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>

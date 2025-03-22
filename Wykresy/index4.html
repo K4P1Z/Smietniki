@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wykres Punktowy</title>
+    <style>
+          #scatterChart {
+              width: 200px !important; /* Wymuszenie 100px szerokości */
+              height: 200px !important; /* Wymuszenie 100px wysokości */
+          }
+    </style>
+</head>
+<body>
+    <canvas id="scatterChart" width="200" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('scatterChart').getContext('2d');
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Wykres Punktowy',
+                    data: [{
+                        x: 9, y: 8
+                    }, {
+                        x: 7, y: 2
+                    }, {
+                        x: 5, y: 5
+                    }],
+                    backgroundColor: 'rgba(75, 192, 192, 1)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
