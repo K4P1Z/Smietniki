@@ -14,7 +14,7 @@
             width: 100%;
             height: 100%;
         }
-        #myChart, #myBarChart, #myLineChart {
+        #myChart, #myBarChart, #myLineChart, #scatterChart {
             width: 100% !important;
             height: 100% !important;
         }
@@ -41,7 +41,10 @@
                 <canvas id="myLineChart"></canvas>
             </section>
 
-            <section class="box"></section>
+            <section class="box">
+                <canvas id="scatterChart"></canvas>
+            </section>
+
             <section class="box"></section>
             <section class="box"></section>
         </section>
@@ -110,6 +113,32 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false
+            }
+        });
+
+        var ctx4 = document.getElementById('scatterChart').getContext('2d');
+        var scatterChart = new Chart(ctx4, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Wykres Punktowy',
+                    data: [
+                        { x: 9, y: 8 },
+                        { x: 7, y: 2 },
+                        { x: 5, y: 5 }
+                    ],
+                    backgroundColor: 'rgba(75, 192, 192, 1)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
             }
         });
     </script>
