@@ -61,7 +61,9 @@
                 <div class="percentage">75%</div>
             </section>
             
-            <section class="box"></section>
+            <section class="box">
+                <canvas id="polarChart"></canvas>
+            </section>
         </section>
     </main>
 
@@ -177,6 +179,25 @@
                 plugins: {
                     tooltip: { enabled: false }
                 }
+            }
+        });
+
+        var ctx6 = document.getElementById('polarChart').getContext('2d');
+        var polarChart = new Chart(ctx6, {
+            type: 'polarArea',
+            data: {
+                labels: ['9', '8', '7', '2'],
+                datasets: [{
+                    label: 'Wykres Polar',
+                    data: [9, 8, 7, 2],
+                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F4F433'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
             }
         });
     </script>
