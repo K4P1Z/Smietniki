@@ -1,4 +1,4 @@
-body, html{
+body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +7,7 @@ body, html{
     background-color: bisque;
 }
 
-main{
+main {
     width: 90%;
     height: 85vh;
     display: flex;
@@ -18,7 +18,7 @@ main{
     background-color: white;
 }
 
-main .sidebar{
+main .sidebar {
     width: 5%;
     display: flex;
     background-color: #8B5E3B;
@@ -30,19 +30,20 @@ main .sidebar{
     border-bottom-left-radius: 70px;
 }
 
-.kawa{
+.kawa {
     width: 150px;
     height: 100px;
 }
 
-main .dashboard{
+main .dashboard {
     width: 95%;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
+    justify-content: space-between;
 }
 
-.dashboard > .box{
+.dashboard > .box {
     width: 28%;
     height: 32vh;
     margin: 15px;
@@ -63,9 +64,34 @@ main .dashboard{
 
 
 
+@media screen and (max-width: 1024px) {
+    main {
+        width: 100%;
+    }
 
+    .dashboard > .box {
+        width: 28%;
+        margin: 10px;
+    }
+}
 
+    @media screen and (max-width: 768px) {
 
+        main{
+            width: 100%;
+        }
+
+        .dashboard { 
+            overflow-y: auto;  
+            max-height: 100vh;
+            direction: rtl;
+        }
+    
+        .dashboard > .box {
+            width: 40%;  
+            height: 35vh;
+        }
+    }
 
 
 
