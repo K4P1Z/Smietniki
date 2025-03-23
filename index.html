@@ -6,30 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy {
-            width: 100% !important;
-            height: 100% !important;
-        }
-        .percentage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 5rem;
-            font-weight: bold;
-            color: black;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
 </head>
 <body>
     <main>
@@ -41,27 +17,33 @@
 
         <section class="dashboard">
             <section class="box">
+                <h2>Podział sprzedaży napojów</h2>
                 <canvas id="wykreskolowy"></canvas>
             </section>
 
             <section class="box">
+                <h2>Najpopularniejsze napoje</h2>
                 <canvas id="wykresslupkowy"></canvas>
             </section>
 
             <section class="box">
+                <h2>Wzrost sprzedaży</h2>
                 <canvas id="wykresliniowy"></canvas>
             </section>
 
             <section class="box">
+                <h2>Popularność napojów </h2>
                 <canvas id="wykrespunktowy"></canvas>
             </section>
 
             <section class="box">
+                <h2>Częstotliwość zakupu</h2>
                 <canvas id="wykresprocentowy"></canvas>
-                <div class="percentage">75%</div>
+                <div class="percentage">86%</div>
             </section>
             
             <section class="box">
+                <h2>Porównanie napojów</h2>
                 <canvas id="wykrespolar"></canvas>
             </section>
         </section>
@@ -73,10 +55,10 @@ var wykreskolowy = new Chart(wykres1, {
     type: 'pie',
     data: {
         datasets: [{
-            label: 'Procent Zapełnienia',
-            data: [74, 26],
-            backgroundColor: ['#8B5E3B', '#D7B899'],
-            borderColor: ['#4B2E2A', '#F5E1C8'],
+            label: 'Sprzedaż',
+            data: [79, 21],
+            backgroundColor: ['#00704A', '#ffffff'],
+            borderColor: ['#004F3A', '#004F3A'],
             borderWidth: 1
         }]
     },
@@ -90,10 +72,10 @@ var wykres2 = document.getElementById('wykresslupkowy').getContext('2d');
 var wykresslupkowy = new Chart(wykres2, {
     type: 'bar',
     data: {
-        labels: ['A', 'B', 'C', 'D'],
+        labels: ['Amer.', 'Latte', 'Capp.', 'Mach.'],
         datasets: [{
             label: 'Wartość',
-            data: [12, 19, 3, 5],
+            data: [14, 17, 8, 9],
             backgroundColor: ['#4B2E2A', '#8B5E3B', '#C97C5D', '#D7B899'],
             borderColor: '#4B2E2A',
             borderWidth: 1
@@ -109,13 +91,13 @@ var wykres3 = document.getElementById('wykresliniowy').getContext('2d');
 var wykresliniowy = new Chart(wykres3, {
     type: 'line',
     data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
         datasets: [{
             label: 'Wzrost',
-            data: [0, 10, 5, 2],
+            data: [0, 1, 6, 8, 6],
             fill: false,
-            borderColor: '#8B5E3B',
-            backgroundColor: '#C97C5D',
+            borderColor: '#00704A',
+            backgroundColor: '#004F3A',
             tension: 0.1
         }]
     },
@@ -133,8 +115,8 @@ var wykrespunktowy = new Chart(wykres4, {
             label: 'Wykres Punktowy',
             data: [
                 { x: 9, y: 8 },
-                { x: 7, y: 2 },
-                { x: 5, y: 5 }
+                { x: 7, y: 6 },
+                { x: 6, y: 9 }
             ],
             backgroundColor: '#C97C5D',
             borderColor: '#8B5E3B',
@@ -158,9 +140,9 @@ var wykresprocentowy = new Chart(wykres5, {
         labels: ['Zapełnione', 'Puste'],
         datasets: [{
             label: 'Procent Zapełnienia',
-            data: [75, 25],
-            backgroundColor: ['#8B5E3B', '#D7B899'],
-            borderColor: ['#4B2E2A', '#F5E1C8'],
+            data: [86, 14],
+            backgroundColor: ['#00704A', '#f9f9f9'],
+            borderColor: ['#004F3A', '#00704A'],
             borderWidth: 1
         }]
     },

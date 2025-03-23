@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
@@ -62,6 +64,38 @@ main .dashboard {
                 -7px -7px 20px rgba(255, 255, 255, 0.3);
 }
 
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.box > h2{
+    margin: 5px 0px 10px 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+}
+
+#wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
+    width: 70% !important;
+    height: 70% !important;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    margin-top: 30px;
+    font-weight: bold;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 
 @media screen and (max-width: 1024px) {
@@ -72,6 +106,10 @@ main .dashboard {
     .dashboard > .box {
         width: 28%;
         margin: 10px;
+    }
+
+    .percentage{
+        margin-top: 50px;
     }
 }
 
@@ -91,7 +129,12 @@ main .dashboard {
             width: 40%;  
             height: 35vh;
         }
+
+        .box > h2{
+            font-size: 1.2rem;
+        }
     }
+
 
 
 
