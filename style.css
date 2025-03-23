@@ -109,7 +109,13 @@ main .dashboard {
     }
 
     .percentage{
-        margin-top: 50px;
+        margin-top: 48px;
+        font-size: 1.8rem;
+    }
+
+    #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
+        width: 60% !important;
+        height: 60% !important;
     }
 }
 
