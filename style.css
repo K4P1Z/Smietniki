@@ -98,7 +98,7 @@ main .dashboard {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1310px) {
     body, html {
         margin: 15px;
     }
