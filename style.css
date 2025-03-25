@@ -99,25 +99,70 @@ main .dashboard {
 }
 
 @media screen and (max-width: 1024px) {
+    body, html {
+        margin: 15px;
+    }
+
+    main .dashboard {
+        padding: 10px;
+    }
+
     main {
         width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    main .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-top-left-radius: 60px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 60px;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        z-index: 10; 
+    }
+
+    .kawa {
+        width: 100px;
+        height: auto;
+    }
+
+    .dashboard {
+        width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        padding: 10px;
+        margin-top: 60px;
     }
 
     .dashboard > .box {
-        width: 45%;
-        margin: 10px;
+        width: 90%;  
+        height: auto;
+        margin: 15px auto;
+        padding: 15px;
     }
 
-    .percentage {
-        margin-top: 48px;
-        font-size: 1.8rem;
+    .box > h2 {
+        font-size: 1.1rem;
     }
 
     #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
-        width: 60% !important;
-        height: 60% !important;
+        width: 80% !important;
+        height: 80% !important;
+    }
+
+    .percentage {
+        font-size: 1.5rem;
+        margin-top: 40px;
     }
 }
+
+
 
 @media screen and (max-width: 768px) {
     main {
