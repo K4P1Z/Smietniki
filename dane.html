@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edytuj Wykresy</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main>
+        <section class="sidebar">
+            <section class="pionowe_zdjecia">
+                <img src="https://download.logo.wine/logo/Starbucks/Starbucks-Logo.wine.png" class="kawa" alt="Starbucks">
+                <ul style="list-style-type: none;">
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="dane.html">Dane</a></li>
+                </ul>
+            </section>
+        </section>
+
+<form id="skibidii">
+        <section class="dashboard">
+            <section class="box">
+                <h2>Podział sprzedaży napojów</h2>
+                <label for="pieData">Podział sprzedaży napojów:</label>
+                <input type="text" id="pieData" placeholder="79,21">
+            </section>
+
+            <section class="box">
+                <h2>Wzrost sprzedaży</h2>
+                <label for="barData">Najpopularniejsze napoje:</label>
+                <input type="text" id="barData" placeholder="14,17,8,9">
+            </section>
+
+            <section class="box">
+                <h2>Popularność napojów </h2>
+                <label for="lineData">Wzrost sprzedaży:</label>
+                <input type="text" id="lineData" placeholder="0,1,6,8,6">
+            </section>
+
+            <section class="box">
+                <h2>Częstotliwość zakupu</h2>
+                <label for="scatterData">Popularność napojów (x,y):</label>
+                <input type="text" id="scatterData" placeholder="9,8;7,6;6,9">
+            </section>
+            
+            <section class="box">
+                <h2>Porównanie napojów</h2>
+                <label for="doughnutData">Częstotliwość zakupu:</label>
+                <input type="text" id="doughnutData" placeholder="86,14">
+            </section>
+
+            <section class="box">
+                <h2>Najpopularniejsze napoje</h2>
+                <label for="polarData">Porównanie napojów:</label>
+                <input type="text" id="polarData" placeholder="9,8,7,2">
+            </section>
+            <button type="submit">Zapisz</button>
+        </section>
+</form>
+    </main>
+    
+    <script>
+        document.getElementById('skibidii').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            localStorage.setItem('pieData', document.getElementById('pieData').value);
+            localStorage.setItem('barData', document.getElementById('barData').value);
+            localStorage.setItem('lineData', document.getElementById('lineData').value);
+            localStorage.setItem('scatterData', document.getElementById('scatterData').value);
+            localStorage.setItem('doughnutData', document.getElementById('doughnutData').value);
+            localStorage.setItem('polarData', document.getElementById('polarData').value);
+            
+            alert('Dane zapisane! Przejdź do strony głównej, aby zobaczyć zmiany.');
+        });
+    </script>
+</body>
+</html>
