@@ -81,21 +81,78 @@ main .dashboard {
     font-size: 1.3rem;
 }
 
-#wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
-    width: 70% !important;
-    height: 70% !important;
+.wykres-kontener {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.percentage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    margin-top: 30px;
+.słupkowy div {
+    width: 40px;
+    height: var(--height);
+    background: #3498db;
+    margin: 5px;
+    display: inline-block;
+}
+
+.kolowy {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(red 0% 25%, blue 25% 50%, green 50% 75%, yellow 75% 100%);
+}
+
+.liniowy {
+    width: 150px;
+    height: 150px;
+}
+
+.trójkątny {
+    width: 0;
+    height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 150px solid #e74c3c;
+}
+
+.słupki {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.słupki div {
+    height: 35px;
+    width: var(--width);
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    border-radius: 8px;
+    margin: 8px 0;
+    text-align: right;
+    color: white;
+    padding-right: 10px;
+    line-height: 35px;
     font-weight: bold;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    transition: width 0.5s ease;
+}
+
+.okrągły {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#3498db 0% 35%, #2ecc71 35% 65%, #f1c40f 65% 100%);
+    position: relative;
+}
+
+.okrągły::before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    top: 30px;
+    left: 30px;
 }
 
 @media screen and (max-width: 1310px) {
@@ -150,16 +207,6 @@ main .dashboard {
     .box > h2 {
         font-size: 1.1rem;
     }
-
-    #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
-        width: 80% !important;
-        height: 80% !important;
-    }
-
-    .percentage {
-        font-size: 1.5rem;
-        margin-top: 40px;
-    }
 }
 
 
@@ -207,16 +254,6 @@ main .dashboard {
 
     .box > h2 {
         font-size: 1.1rem;
-    }
-
-    #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
-        width: 80% !important;
-        height: 80% !important;
-    }
-
-    .percentage {
-        font-size: 1.5rem;
-        margin-top: 40px;
     }
 }
 
@@ -275,15 +312,4 @@ main .dashboard {
     .box > h2 {
         font-size: 1.1rem;
     }
-
-    #wykreskolowy, #wykresslupkowy, #wykresliniowy, #wykrespunktowy, #wykresprocentowy, #wykrespolar {
-        width: 80% !important;
-        height: 80% !important;
-    }
-
-    .percentage {
-        font-size: 1.5rem;
-        margin-top: 40px;
-    }
 }
-

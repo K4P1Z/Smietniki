@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <main>
@@ -22,168 +21,52 @@
         <section class="dashboard">
             <section class="box">
                 <h2>Podział sprzedaży napojów</h2>
-                <canvas id="wykreskolowy"></canvas>
+                <section class="wykres-kontener słupkowy">
+                    <div style="height: 80px"></div>
+                    <div style="height: 120px"></div>
+                    <div style="height: 60px"></div>
+                </section>
             </section>
 
             <section class="box">
                 <h2>Najpopularniejsze napoje</h2>
-                <canvas id="wykresslupkowy"></canvas>
+                <div class="wykres-kontener">
+                    <div class="kolowy"></div>
+                </div>
             </section>
 
             <section class="box">
                 <h2>Wzrost sprzedaży</h2>
-                <canvas id="wykresliniowy"></canvas>
+                <div class="wykres-kontener liniowy">
+                    <svg viewBox="0 0 100 100" width="100" height="100">
+                        <polyline points="10,80 30,60 50,70 70,40 90,20" stroke="blue" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
             </section>
 
             <section class="box">
                 <h2>Popularność napojów </h2>
-                <canvas id="wykrespunktowy"></canvas>
+                <div class="kontener-wykresu">
+                    <div class="trójkątny"></div>
+                </div>
             </section>
 
             <section class="box">
                 <h2>Częstotliwość zakupu</h2>
-                <canvas id="wykresprocentowy"></canvas>
-                <div class="percentage">86%</div>
+                <div class="kontener-wykresu słupki">
+                    <div style="width: 90%">90%</div>
+                    <div style="width: 70%">70%</div>
+                    <div style="width: 50%">50%</div>
+                </div>
             </section>
             
             <section class="box">
                 <h2>Porównanie napojów</h2>
-                <canvas id="wykrespolar"></canvas>
+                <div class="kontener-wykresu">
+                    <div class="okrągły"></div>
+                </div>
             </section>
         </section>
     </main>
-
-    <script>
-        const pieData = localStorage.getItem('pieData') ? localStorage.getItem('pieData').split(',').map(Number) : [79, 21];
-        const barData = localStorage.getItem('barData') ? localStorage.getItem('barData').split(',').map(Number) : [14, 17, 8, 9];
-        const lineData = localStorage.getItem('lineData') ? localStorage.getItem('lineData').split(',').map(Number) : [0, 1, 6, 8, 6];
-        const scatterData = localStorage.getItem('scatterData') ? localStorage.getItem('scatterData').split(';').map(pair => pair.split(',').map(Number)) : [[9, 8], [7, 6], [6, 9]];
-        const doughnutData = localStorage.getItem('doughnutData') ? localStorage.getItem('doughnutData').split(',').map(Number) : [86, 14];
-        const polarData = localStorage.getItem('polarData') ? localStorage.getItem('polarData').split(',').map(Number) : [9, 8, 7, 2];
-
-
-        var wykres1 = document.getElementById('wykreskolowy').getContext('2d');
-        var wykreskolowy = new Chart(wykres1, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    label: 'Sprzedaż',
-                    data: pieData,
-                    backgroundColor: ['#00704A', '#ffffff'],
-                    borderColor: ['#004F3A', '#004F3A'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-
-
-        var wykres2 = document.getElementById('wykresslupkowy').getContext('2d');
-        var wykresslupkowy = new Chart(wykres2, {
-            type: 'bar',
-            data: {
-                labels: ['Amer.', 'Latte', 'Capp.', 'Mach.'],
-                datasets: [{
-                    label: 'Wartość',
-                    data: barData,
-                    backgroundColor: ['#4B2E2A', '#8B5E3B', '#C97C5D', '#D7B899'],
-                    borderColor: '#4B2E2A',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-
-
-        var wykres3 = document.getElementById('wykresliniowy').getContext('2d');
-        var wykresliniowy = new Chart(wykres3, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-                datasets: [{
-                    label: 'Wzrost',
-                    data: lineData,
-                    fill: false,
-                    borderColor: '#00704A',
-                    backgroundColor: '#004F3A',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-
-        var wykres4 = document.getElementById('wykrespunktowy').getContext('2d');
-        var wykrespunktowy = new Chart(wykres4, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: 'Wykres Punktowy',
-                    data: scatterData.map(([x, y]) => ({x, y})),
-                    backgroundColor: '#C97C5D',
-                    borderColor: '#8B5E3B',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { beginAtZero: true },
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-
-        var wykres5 = document.getElementById('wykresprocentowy').getContext('2d');
-        var wykresprocentowy = new Chart(wykres5, {
-            type: 'doughnut',
-            data: {
-                labels: ['Zapełnione', 'Puste'],
-                datasets: [{
-                    label: 'Procent Zapełnienia',
-                    data: doughnutData,
-                    backgroundColor: ['#00704A', '#f9f9f9'],
-                    borderColor: ['#004F3A', '#00704A'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: {
-                    tooltip: { enabled: false }
-                }
-            }
-        });
-
-        var wykres6 = document.getElementById('wykrespolar').getContext('2d');
-        var wykrespolar = new Chart(wykres6, {
-            type: 'polarArea',
-            data: {
-                labels: ['9', '8', '7', '2'],
-                datasets: [{
-                    label: 'Wykres Polar',
-                    data: polarData,
-                    backgroundColor: ['#4B2E2A', '#8B5E3B', '#C97C5D', '#D7B899'],
-                    borderColor: '#F5E1C8',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-    </script>
 </body>
 </html>
