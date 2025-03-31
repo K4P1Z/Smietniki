@@ -133,6 +133,7 @@ main .dashboard {
     padding-right: 10px;
     line-height: 35px;
     font-weight: bold;
+    font-family: "Poppins", sans-serif;
     transition: width 0.5s ease;
 }
 
@@ -140,8 +141,11 @@ main .dashboard {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: conic-gradient(#3498db 0% 35%, #2ecc71 35% 65%, #f1c40f 65% 100%);
+    background: conic-gradient(#3498db 0% 75%, #f9f9f9 75% 100%);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .okrągły::before {
@@ -153,6 +157,14 @@ main .dashboard {
     border-radius: 50%;
     top: 30px;
     left: 30px;
+}
+
+.wartosc {
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #3498db;
 }
 
 @media screen and (max-width: 1310px) {
