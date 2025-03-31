@@ -69,5 +69,69 @@
             </section>
         </section>
     </main>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let data = {
+        slupkowy: [80, 120, 60],
+        kolowy: [25, 25, 25, 25],
+        liniowy: [10, 100, 50, 20, 90],
+        slupki: [90, 70, 50],
+        okragly: 75
+    };
+
+    function updateCharts() {
+        let slupkowyBars = document.querySelectorAll(".słupkowy div");
+        for (let i = 0; i < slupkowyBars.length; i++) {
+            slupkowyBars[i].style.height = data.slupkowy[i] + "px";
+        }
+
+        let pieChart = document.querySelector(".kolowy");
+        let total = data.kolowy.reduce((a, b) => a + b, 0);
+        let colors = ["red", "blue", "green", "yellow"];
+        let gradient = "conic-gradient(";
+        let start = 0;
+        for (let i = 0; i < data.kolowy.length; i++) {
+            let end = start + (data.kolowy[i] / total) * 100;
+            gradient += colors[i] + " " + start + "% " + end + "%, ";
+            start = end;
+        }
+        pieChart.style.background = gradient.slice(0, -2) + ")";
+
+        let polyline = document.querySelector(".liniowy polyline");
+        let points = "";
+        for (let i = 0; i < data.liniowy.length; i++) {
+            points += (10 + i * 20) + "," + (100 - data.liniowy[i]) + " ";
+        }
+        polyline.setAttribute("points", points.trim());
+
+        let slupkiBars = document.querySelectorAll(".słupki div");
+        for (let i = 0; i < slupkiBars.length; i++) {
+            slupkiBars[i].style.width = data.slupki[i] + "%";
+            slupkiBars[i].textContent = data.slupki[i] + "%";
+        }
+
+        let okraglyChart = document.querySelector(".okrągły");
+        okraglyChart.style.background = `conic-gradient(#3498db 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
+        document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
+    }
+
+    let button = document.createElement("button");
+    button.textContent = "Edytuj dane";
+    button.id = "editData";
+    document.body.appendChild(button);
+    button.addEventListener("click", function () {
+        let newData = prompt("Podaj nowe wartości w formacie JSON", JSON.stringify(data));
+        try {
+            data = JSON.parse(newData);
+            updateCharts();
+        } catch (e) {
+            alert("Nieprawidłowy format danych!");
+        }
+    });
+
+    updateCharts();
+});
+
+    </script>
 </body>
 </html>
