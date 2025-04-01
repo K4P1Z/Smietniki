@@ -48,9 +48,6 @@
                 <div class="graph-container">
                     <svg class="radar" viewBox="0 0 100 100">
                         <polygon points="50,10 90,30 75,80 25,80 10,30" fill="rgba(0, 123, 255, 0.5)" stroke="blue" stroke-width="2"></polygon>
-                        <polygon points="50,20 80,35 70,70 30,70 15,35" fill="none" stroke="gray" stroke-width="1"></polygon>
-                        <polygon points="50,30 70,40 65,60 35,60 20,40" fill="none" stroke="gray" stroke-width="1"></polygon>
-                        <polygon points="50,40 60,45 55,50 45,50 40,45" fill="none" stroke="gray" stroke-width="1"></polygon>
                     </svg>
                 </div>
             </section>
@@ -63,7 +60,7 @@
                     <div style="width: 50%">50%</div>
                 </div>
             </section>
-            
+
             <section class="box">
                 <h2>Porównanie napojów</h2>
                 <div class="kontener-wykresu">
@@ -75,13 +72,14 @@
         </section>
     </main>
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     let data = {
         slupkowy: [80, 120, 60],
         kolowy: [25, 25, 25, 25],
         liniowy: [10, 100, 50, 20, 90],
         slupki: [90, 70, 50],
-        okragly: 75
+        okragly: 75,
+        radar: [70, 70, 70, 70, 70]
     };
 
     function updateCharts() {
@@ -118,6 +116,20 @@
         let okraglyChart = document.querySelector(".okrągły");
         okraglyChart.style.background = `conic-gradient(#3498db 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
+
+        let radarSvg = document.querySelector(".radar polygon");
+        let radarGrid = document.querySelector(".radar .grid");
+        let basePoints = [
+            [50, 0], [95, 35], [80, 90], [20, 90], [5, 35]
+        ];
+        let radarPoints = basePoints.map((point, index) => {
+            let scale = data.radar[index] / 100;
+            return [(50 + (point[0] - 50) * scale), (50 + (point[1] - 50) * scale)].join(",");
+        }).join(" ");
+        radarSvg.setAttribute("points", radarPoints);
+
+        let gridPoints = basePoints.map(point => point.join(",")).join(" ");
+        radarGrid.setAttribute("points", gridPoints);
     }
 
     let button = document.createElement("button");
