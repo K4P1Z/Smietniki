@@ -14,60 +14,63 @@
             </section>
         </section>
 
-    <form id="skibidii">
-        <section class="dashboard">
-            <section class="box">
-                <h2>Podział sprzedaży napojów</h2>
-                <label for="wykres-kontener słupkowy">Podział sprzedaży napojów:</label>
-                <input type="text" id="wykres-kontener słupkowy" placeholder="79,21">
-            </section>
+        <form id="formularzDanych">
+            <section class="dashboard">
+                <section class="box">
+                    <h2>Podział sprzedaży napojów</h2>
+                    <label for="wykres_slupkowy">Podział sprzedaży napojów:</label>
+                    <input type="text" id="wykres_slupkowy" placeholder="np. 70,50,100">
+                </section>
 
-            <section class="box">
-                <h2>Najpopularniejsze napoje</h2>
-                <label for="kolowy">Najpopularniejsze napoje:</label>
-                <input type="text" id="kolowy" placeholder="14,17,8,9">
-            </section>
+                <section class="box">
+                    <h2>Najpopularniejsze napoje</h2>
+                    <label for="kolowy">Najpopularniejsze napoje:</label>
+                    <input type="text" id="kolowy" placeholder="np. 30,20,30">
+                </section>
 
-            <section class="box">
-                <h2>Wzrost sprzedaży </h2>
-                <label for="wykres-kontener liniowy">Wzrost sprzedaży:</label>
-                <input type="text" id="wykres-kontener liniowy" placeholder="0,1,6,8,6">
-            </section>
+                <section class="box">
+                    <h2>Wzrost sprzedaży</h2>
+                    <label for="wykres_liniowy">Wzrost sprzedaży:</label>
+                    <input type="text" id="wykres_liniowy" placeholder="np. 20,50,40,90,20">
+                </section>
 
-            <section class="box">
-                <h2>Popularność napojów</h2>
-                <label for="radar">Popularność napojów:</label>
-                <input type="text" id="radar" placeholder="9,8;7,6;6,9">
-            </section>
+                <section class="box">
+                    <h2>Popularność napojów</h2>
+                    <label for="radar">Popularność napojów:</label>
+                    <input type="text" id="radar" placeholder="np. 50,40,50,70,60">
+                </section>
 
-            <section class="box">
-                <h2>Częstotliwość zakupu</h2>
-                <label for="kontener-wykresu słupki">Częstotliwość zakupu:</label>
-                <input type="text" id="kontener-wykresu słupki" placeholder="86,14">
-            </section>
+                <section class="box">
+                    <h2>Częstotliwość zakupu</h2>
+                    <label for="wykres_slupki">Częstotliwość zakupu:</label>
+                    <input type="text" id="wykres_slupki" placeholder="np. 80,40,70">
+                </section>
 
-            <section class="box">
-                <h2>Porównanie napojów</h2>
-                <label for="okrągły">Porównanie napojów:</label>
-                <input type="text" id="okrągły" placeholder="9,8,7,2">
+                <section class="box">
+                    <h2>Porównanie napojów</h2>
+                    <label for="okragly">Porównanie napojów:</label>
+                    <input type="text" id="okragly" placeholder="np. 50">
+                </section>
+                <button type="submit">Zapisz</button>
             </section>
-            <button type="submit">Zapisz</button>
-        </section>
-</form>
+        </form>
     </main>
-    
+
     <script>
-        document.getElementById('skibidii').addEventListener('submit', function(event) {
+        document.getElementById('formularzDanych').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            localStorage.setItem('wykres-kontener słupkowy', document.getElementById('wykres-kontener słupkowy').value);
-            localStorage.setItem('kolowy', document.getElementById('kolowy').value);
-            localStorage.setItem('wykres-kontener liniowy', document.getElementById('wykres-kontener liniowy').value);
-            localStorage.setItem('radar', document.getElementById('radar').value);
-            localStorage.setItem('kontener-wykresu słupki', document.getElementById('kontener-wykresu słupki').value);
-            localStorage.setItem('okrągły', document.getElementById('okrągły').value);
+            let data = {
+                slupkowy: document.getElementById('wykres_slupkowy').value.split(',').map(Number),
+                kolowy: document.getElementById('kolowy').value.split(',').map(Number),
+                liniowy: document.getElementById('wykres_liniowy').value.split(',').map(Number),
+                radar: document.getElementById('radar').value.split(',').map(Number),
+                slupki: document.getElementById('wykres_slupki').value.split(',').map(Number),
+                okragly: Number(document.getElementById('okragly').value)
+            };
             
-            alert('Dane zapisane! Przejdź do strony głównej, aby zobaczyć zmiany.');
+            localStorage.setItem('chartData', JSON.stringify(data));
+            alert('Dane zapisane! Przejdź do wykresów, aby zobaczyć zmiany.');
         });
     </script>
 </body>

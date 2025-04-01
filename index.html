@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
 </head>
 <body>
@@ -73,20 +73,21 @@
     </main>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-    let data = {
+    let savedData = localStorage.getItem("chartData");
+    let data = savedData ? JSON.parse(savedData) : {
         slupkowy: [80, 120, 60],
         kolowy: [25, 25, 25, 25],
         liniowy: [10, 100, 50, 20, 90],
+        radar: [70, 70, 70, 70, 70],
         slupki: [90, 70, 50],
-        okragly: 75,
-        radar: [70, 70, 70, 70, 70]
+        okragly: 75
     };
 
     function updateCharts() {
         let slupkowyBars = document.querySelectorAll(".słupkowy div");
-        for (let i = 0; i < slupkowyBars.length; i++) {
-            slupkowyBars[i].style.height = data.slupkowy[i] + "px";
-        }
+        slupkowyBars.forEach((bar, i) => {
+            bar.style.height = data.slupkowy[i] + "px";
+        });
 
         let pieChart = document.querySelector(".kolowy");
         let total = data.kolowy.reduce((a, b) => a + b, 0);
@@ -95,51 +96,36 @@ document.addEventListener("DOMContentLoaded", function () {
         let start = 0;
         for (let i = 0; i < data.kolowy.length; i++) {
             let end = start + (data.kolowy[i] / total) * 100;
-            gradient += colors[i] + " " + start + "% " + end + "%, ";
+            gradient += `${colors[i]} ${start}% ${end}%, `;
             start = end;
         }
         pieChart.style.background = gradient.slice(0, -2) + ")";
 
         let polyline = document.querySelector(".liniowy polyline");
-        let points = "";
-        for (let i = 0; i < data.liniowy.length; i++) {
-            points += (10 + i * 20) + "," + (100 - data.liniowy[i]) + " ";
-        }
-        polyline.setAttribute("points", points.trim());
+        let points = data.liniowy.map((val, i) => `${10 + i * 20},${100 - val}`).join(" ");
+        polyline.setAttribute("points", points);
 
         let slupkiBars = document.querySelectorAll(".słupki div");
-        for (let i = 0; i < slupkiBars.length; i++) {
-            slupkiBars[i].style.width = data.slupki[i] + "%";
-            slupkiBars[i].textContent = data.slupki[i] + "%";
-        }
+        slupkiBars.forEach((bar, i) => {
+            bar.style.width = data.slupki[i] + "%";
+            bar.textContent = data.slupki[i] + "%";
+        });
 
         let okraglyChart = document.querySelector(".okrągły");
         okraglyChart.style.background = `conic-gradient(#3498db 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
-
-        let radarSvg = document.querySelector(".radar polygon");
-        let radarGrid = document.querySelector(".radar .grid");
-        let basePoints = [
-            [50, 0], [95, 35], [80, 90], [20, 90], [5, 35]
-        ];
-        let radarPoints = basePoints.map((point, index) => {
-            let scale = data.radar[index] / 100;
-            return [(50 + (point[0] - 50) * scale), (50 + (point[1] - 50) * scale)].join(",");
-        }).join(" ");
-        radarSvg.setAttribute("points", radarPoints);
-
-        let gridPoints = basePoints.map(point => point.join(",")).join(" ");
-        radarGrid.setAttribute("points", gridPoints);
     }
 
     let button = document.createElement("button");
     button.textContent = "Edytuj dane";
     button.id = "editData";
     document.body.appendChild(button);
+    
     button.addEventListener("click", function () {
         let newData = prompt("Podaj nowe wartości w formacie JSON", JSON.stringify(data));
         try {
             data = JSON.parse(newData);
+            localStorage.setItem("chartData", JSON.stringify(data));
             updateCharts();
         } catch (e) {
             alert("Nieprawidłowy format danych!");

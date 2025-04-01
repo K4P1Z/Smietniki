@@ -1,360 +1,360 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    margin: 30px;
-}
-
-.pionowe_zdjecia{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.pionowe_zdjecia > ul{
-    list-style: none;
-    text-align: center;
-    padding: 0px 20px 0px 20px;
-}
-
-.pionowe_zdjecia > ul > li > a{
-    text-decoration: none;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.1rem;
-}
-
-main {
-    width: 90%;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-    place-self: center;
-    border-radius: 70px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    background-color: bisque;
-}
-
-main .sidebar {
-    width: 5%;
-    display: flex;
-    background-color: #8B5E3B;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    padding: 20px;
-    border-top-left-radius: 70px;
-    border-bottom-left-radius: 70px;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-.kawa {
-    width: 150px;
-    height: 100px;
-}
-
-main .dashboard {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: space-between;
-}
-
-.dashboard > .box {
-    width: 28%;
-    height: 32vh;
-    margin: 15px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 30px;
-    box-shadow: 
-        8px 8px 20px rgba(0, 0, 0, 0.3), 
-        -5px -5px 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dashboard > .box:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.4), 
-                -7px -7px 20px rgba(255, 255, 255, 0.3);
-}
-
-.box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.box > h2 {
-    margin: 5px 0px 10px 0px;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.3rem;
-}
-
-.wykres-kontener {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.słupkowy div {
-    width: 40px;
-    height: var(--height);
-    background: #3498db;
-    margin: 5px;
-    display: inline-block;
-}
-
-.kolowy {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: conic-gradient(red 0% 25%, blue 25% 50%, green 50% 75%, yellow 75% 100%);
-}
-
-.liniowy {
-    width: 150px;
-    height: 150px;
-}
-
-.trójkątny {
-    width: 0;
-    height: 0;
-    border-left: 70px solid transparent;
-    border-right: 70px solid transparent;
-    border-bottom: 150px solid #e74c3c;
-}
-
-.słupki {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.słupki div {
-    height: 35px;
-    width: var(--width);
-    background: linear-gradient(to right, #8e44ad, #3498db);
-    border-radius: 8px;
-    margin: 8px 0;
-    text-align: right;
-    color: white;
-    padding-right: 10px;
-    line-height: 35px;
-    font-weight: bold;
-    font-family: "Poppins", sans-serif;
-    transition: width 0.5s ease;
-}
-
-.okrągły {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: conic-gradient(#3498db 0% 75%, #f9f9f9 75% 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.okrągły::before {
-    content: "";
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    background: white;
-    border-radius: 50%;
-    top: 30px;
-    left: 30px;
-}
-
-.wartosc {
-    position: absolute;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #3498db;
-}
-
-.graph-container {
-    width: 90%;
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.radar {
-    width: 100%;
-    height: 100%;
-}
-
-@media screen and (max-width: 1310px) {
-    body, html {
-        margin: 15px;
-    }
-
-    main .dashboard {
-        padding: 10px;
-    }
-
-    main {
-        width: 100%;
-        flex-direction: column;
-        height: auto;
-    }
-
-    main .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-top-left-radius: 60px;
-        border-bottom-left-radius: 0px;
-        border-top-right-radius: 60px;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        z-index: 10; 
-    }
-
-    .kawa {
-        width: 100px;
-        height: auto;
-    }
-
-    .dashboard {
-        width: 100%;
-        max-height: 100%;
-        overflow-y: auto;
-        padding: 10px;
-        margin-top: 60px;
-    }
-
-    .dashboard > .box {
-        width: 90%;  
-        height: auto;
-        margin: 15px auto;
-        padding: 15px;
-    }
-
-    .box > h2 {
-        font-size: 1.1rem;
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-    main {
-        width: 100%;
-        flex-direction: column;
-        height: auto;
-    }
-
-    main .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-top-left-radius: 60px;
-        border-bottom-left-radius: 0px;
-        border-top-right-radius: 60px;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        z-index: 10; 
-    }
-
-    .kawa {
-        width: 100px;
-        height: auto;
-    }
-
-    .dashboard {
-        width: 100%;
-        max-height: 100%;
-        overflow-y: auto;
-        padding: 10px;
-        margin-top: 60px;
-    }
-
-    .dashboard > .box {
-        width: 90%;  
-        height: auto;
-        margin: 15px auto;
-        padding: 15px;
-    }
-
-    .box > h2 {
-        font-size: 1.1rem;
-    }
-}
-
-
-
-
-@media screen and (max-width: 425px) {
-    body, html {
-        margin: 15px;
-    }
-
-    main .dashboard {
-        padding: 10px;
-    }
-
-    main {
-        width: 100%;
-        flex-direction: column;
-        height: auto;
-    }
-
-    main .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-top-left-radius: 60px;
-        border-bottom-left-radius: 0px;
-        border-top-right-radius: 60px;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        z-index: 10; 
-    }
-
-    .kawa {
-        width: 100px;
-        height: auto;
-    }
-
-    .dashboard {
-        width: 100%;
-        max-height: 100%;
-        overflow-y: auto;
-        padding: 10px;
-        margin-top: 60px;
-    }
-
-    .dashboard > .box {
-        width: 90%;  
-        height: auto;
-        margin: 15px auto;
-        padding: 15px;
-    }
-
-    .box > h2 {
-        font-size: 1.1rem;
-    }
-}
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            margin: 30px;
+        }
+        
+        .pionowe_zdjecia{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pionowe_zdjecia > ul{
+            list-style: none;
+            text-align: center;
+            padding: 0px 20px 0px 20px;
+        }
+        
+        .pionowe_zdjecia > ul > li > a{
+            text-decoration: none;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        main {
+            width: 90%;
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            place-self: center;
+            border-radius: 70px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background-color: bisque;
+        }
+        
+        main .sidebar {
+            width: 5%;
+            display: flex;
+            background-color: #8B5E3B;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding: 20px;
+            border-top-left-radius: 70px;
+            border-bottom-left-radius: 70px;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        
+        .kawa {
+            width: 150px;
+            height: 100px;
+        }
+        
+        main .dashboard {
+            width: 95%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+        
+        .dashboard > .box {
+            width: 28%;
+            height: 32vh;
+            margin: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 30px;
+            box-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.3), 
+                -5px -5px 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dashboard > .box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.4), 
+                        -7px -7px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .box > h2 {
+            margin: 5px 0px 10px 0px;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3rem;
+        }
+        
+        .wykres-kontener {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .słupkowy div {
+            width: 40px;
+            height: var(--height);
+            background: #3498db;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        .kolowy {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(red 0% 25%, blue 25% 50%, green 50% 75%, yellow 75% 100%);
+        }
+        
+        .liniowy {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .trójkątny {
+            width: 0;
+            height: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-bottom: 150px solid #e74c3c;
+        }
+        
+        .słupki {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        
+        .słupki div {
+            height: 35px;
+            width: var(--width);
+            background: linear-gradient(to right, #8e44ad, #3498db);
+            border-radius: 8px;
+            margin: 8px 0;
+            text-align: right;
+            color: white;
+            padding-right: 10px;
+            line-height: 35px;
+            font-weight: bold;
+            font-family: "Poppins", sans-serif;
+            transition: width 0.5s ease;
+        }
+        
+        .okrągły {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(#3498db 0% 75%, #f9f9f9 75% 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .okrągły::before {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            top: 30px;
+            left: 30px;
+        }
+        
+        .wartosc {
+            position: absolute;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .graph-container {
+            width: 90%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .radar {
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media screen and (max-width: 1310px) {
+            body, html {
+                margin: 15px;
+            }
+        
+            main .dashboard {
+                padding: 10px;
+            }
+        
+            main {
+                width: 100%;
+                flex-direction: column;
+                height: auto;
+            }
+        
+            main .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-top-left-radius: 60px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 60px;
+                padding: 10px 0;
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                z-index: 10; 
+            }
+        
+            .kawa {
+                width: 100px;
+                height: auto;
+            }
+        
+            .dashboard {
+                width: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                padding: 10px;
+                margin-top: 60px;
+            }
+        
+            .dashboard > .box {
+                width: 90%;  
+                height: auto;
+                margin: 15px auto;
+                padding: 15px;
+            }
+        
+            .box > h2 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        
+        
+        @media screen and (max-width: 768px) {
+            main {
+                width: 100%;
+                flex-direction: column;
+                height: auto;
+            }
+        
+            main .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-top-left-radius: 60px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 60px;
+                padding: 10px 0;
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                z-index: 10; 
+            }
+        
+            .kawa {
+                width: 100px;
+                height: auto;
+            }
+        
+            .dashboard {
+                width: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                padding: 10px;
+                margin-top: 60px;
+            }
+        
+            .dashboard > .box {
+                width: 90%;  
+                height: auto;
+                margin: 15px auto;
+                padding: 15px;
+            }
+        
+            .box > h2 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        
+        
+        
+        @media screen and (max-width: 425px) {
+            body, html {
+                margin: 15px;
+            }
+        
+            main .dashboard {
+                padding: 10px;
+            }
+        
+            main {
+                width: 100%;
+                flex-direction: column;
+                height: auto;
+            }
+        
+            main .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-top-left-radius: 60px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 60px;
+                padding: 10px 0;
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                z-index: 10; 
+            }
+        
+            .kawa {
+                width: 100px;
+                height: auto;
+            }
+        
+            .dashboard {
+                width: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                padding: 10px;
+                margin-top: 60px;
+            }
+        
+            .dashboard > .box {
+                width: 90%;  
+                height: auto;
+                margin: 15px auto;
+                padding: 15px;
+            }
+        
+            .box > h2 {
+                font-size: 1.1rem;
+            }
+        }
