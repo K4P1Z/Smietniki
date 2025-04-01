@@ -199,6 +199,16 @@
             width: 100%;
             height: 100%;
         }
+
+        button[type=submit]{
+            margin-left: 50px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #b99053;
+            color: #fff;
+            cursor: pointer;
+        }
         
         @media screen and (max-width: 1310px) {
             body, html {
