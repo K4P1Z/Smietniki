@@ -277,6 +277,15 @@
             .box > h2 {
                 font-size: 1.1rem;
             }
+
+            input{
+                margin: 10px;
+            }
+
+            .radar {
+                width: 70%;
+                height: 70%;
+            }
         }
         
         
@@ -324,6 +333,10 @@
         
             .box > h2 {
                 font-size: 1.1rem;
+            }
+
+            input{
+                margin: 10px;
             }
         }
         
@@ -381,5 +394,9 @@
         
             .box > h2 {
                 font-size: 1.1rem;
+            }
+
+            input{
+                margin: 10px;
             }
         }
