@@ -54,7 +54,7 @@
 
             <section class="box">
                 <h2>Częstotliwość zakupu</h2>
-                <section class="kontener-wykresu słupki">
+                <section class="wykres-kontener słupki">
                     <div style="width: 90%">90%</div>
                     <div style="width: 70%">70%</div>
                     <div style="width: 50%">50%</div>
@@ -63,7 +63,7 @@
 
             <section class="box">
                 <h2>Porównanie napojów</h2>
-                <section class="kontener-wykresu">
+                <section class="wykres-kontener">
                     <section class="okrągły">
                         <section class="wartosc">75%</section>
                     </section>
@@ -115,26 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
         okraglyChart.style.background = `conic-gradient(#3498db 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
     }
-
-    let button = document.createElement("button");
-    button.textContent = "Edytuj dane";
-    button.id = "editData";
-    document.body.appendChild(button);
-    
-    button.addEventListener("click", function () {
-        let newData = prompt("Podaj nowe wartości w formacie JSON", JSON.stringify(data));
-        try {
-            data = JSON.parse(newData);
-            localStorage.setItem("chartData", JSON.stringify(data));
-            updateCharts();
-        } catch (e) {
-            alert("Nieprawidłowy format danych!");
-        }
-    });
-
     updateCharts();
 });
-
     </script>
 </body>
 </html>
