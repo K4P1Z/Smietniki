@@ -73,7 +73,7 @@
     </main>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-    let savedData = localStorage.getItem("chartData");
+    let savedData = localStorage.getItem("zmienioneDane");
     let data = savedData ? JSON.parse(savedData) : {
         slupkowy: [80, 120, 60],
         kolowy: [25, 25, 25, 25],
@@ -87,11 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let slupkowyBars = document.querySelectorAll(".słupkowy div");
         slupkowyBars.forEach((bar, i) => {
             bar.style.height = data.slupkowy[i] + "px";
+            bar.style.backgroundColor = ["#8B5A2B", "#A67B5B", "#D2B48C"][i];
         });
 
         let pieChart = document.querySelector(".kolowy");
         let total = data.kolowy.reduce((a, b) => a + b, 0);
-        let colors = ["red", "blue", "green", "yellow"];
+        let colors = ["#8B4513", "#A0522D", "#D2691E", "#C19A6B"];
         let gradient = "conic-gradient(";
         let start = 0;
         for (let i = 0; i < data.kolowy.length; i++) {
@@ -104,19 +105,22 @@ document.addEventListener("DOMContentLoaded", function () {
         let polyline = document.querySelector(".liniowy polyline");
         let points = data.liniowy.map((val, i) => `${10 + i * 20},${100 - val}`).join(" ");
         polyline.setAttribute("points", points);
+        polyline.setAttribute("stroke", "#6F4E37");
 
         let slupkiBars = document.querySelectorAll(".słupki div");
         slupkiBars.forEach((bar, i) => {
             bar.style.width = data.slupki[i] + "%";
+            bar.style.backgroundColor = "#8B5A2B";
             bar.textContent = data.slupki[i] + "%";
         });
 
         let okraglyChart = document.querySelector(".okrągły");
-        okraglyChart.style.background = `conic-gradient(#3498db 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
+        okraglyChart.style.background = `conic-gradient(#6F4E37 0% ${data.okragly}%, #F5F5DC ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
     }
     updateCharts();
 });
+
     </script>
 </body>
 </html>
