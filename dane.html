@@ -18,46 +18,45 @@
             <section class="box">
                 <h2>Podział sprzedaży napojów</h2>
                 <input type="text" id="wykres_slupkowy" placeholder="Podaj wartości: np. 70,50,100">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('wykres_slupkowy', 'slupkowy')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
 
             <section class="box">
                 <h2>Najpopularniejsze napoje</h2>
                 <input type="text" id="kolowy" placeholder="Podaj wartości: np. 30,20,30">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('kolowy', 'kolowy')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
 
             <section class="box">
                 <h2>Wzrost sprzedaży</h2>
                 <input type="text" id="wykres_liniowy" placeholder="Podaj wartości: np. 20,50,40,90,20">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('wykres_liniowy', 'liniowy')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
 
             <section class="box">
                 <h2>Popularność napojów</h2>
                 <input type="text" id="radar" placeholder="Podaj wartości: np. 50,40,50,70,60">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('radar', 'radar')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
 
             <section class="box">
                 <h2>Częstotliwość zakupu</h2>
                 <input type="text" id="wykres_slupki" placeholder="Podaj wartości: np. 80,40,70">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('wykres_slupki', 'slupki')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
 
             <section class="box">
                 <h2>Porównanie napojów</h2>
                 <input type="text" id="okragly" placeholder="Podaj wartości: np. 50">
-                <button type="submit" onclick="Zapisz()">Zapisz</button>
-                <button id="resetButton" type="submit" onclick="resetFields()">Resetuj</button>
+                <button onclick="zapiszDane('okragly', 'okragly')">Zapisz</button>
+                <button onclick="resetFields()">Resetuj</button>
             </section>
         </section>
-
     </main>
 
     <script>
@@ -71,43 +70,19 @@
             okragly: 75
         };
 
-        document.getElementById('wykres_slupkowy').value = data.slupkowy.join(',');
-        document.getElementById('kolowy').value = data.kolowy.join(',');
-        document.getElementById('wykres_liniowy').value = data.liniowy.join(',');
-        document.getElementById('radar').value = data.radar.join(',');
-        document.getElementById('wykres_slupki').value = data.slupki.join(',');
-        document.getElementById('okragly').value = data.okragly;
+        function zapiszDane(inputId, dataKey) {
+            const inputValue = document.getElementById(inputId).value;
+            if (inputValue.trim() === '') return;
 
-        const inputs = {
-            'wykres_slupkowy': 'slupkowy',
-            'kolowy': 'kolowy',
-            'wykres_liniowy': 'liniowy',
-            'radar': 'radar',
-            'wykres_slupki': 'slupki',
-            'okragly': 'okragly'
-        };
-
-        Object.entries(inputs).forEach(([inputId, dataKey]) => {
-            document.getElementById(inputId).addEventListener('change', function() {
-                const value = this.value;
-                if (value.trim() === '') return;
-
-                if (dataKey === 'okragly') {
-                    data[dataKey] = Number(value);
-                } else {
-                    data[dataKey] = value.split(',').map(Number);
-                }
-                
-                localStorage.setItem('zmienioneDane', JSON.stringify(data));
-                alert('Dane zapisane');
-            });
-        });
+            data[dataKey] = dataKey === 'okragly' ? Number(inputValue) : inputValue.split(',').map(Number);
+            localStorage.setItem('zmienioneDane', JSON.stringify(data));
+            alert('Dane zapisane');
+        }
 
         function resetFields() {
             localStorage.removeItem('zmienioneDane');
             alert("Zresetowano dane");
         }
-
     </script>
 </body>
 </html>
