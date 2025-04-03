@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let slupkowyBars = document.querySelectorAll(".słupkowy div");
         slupkowyBars.forEach((bar, i) => {
             bar.style.height = data.slupkowy[i] + "px";
-            bar.style.backgroundColor = ["#8B5A2B", "#A67B5B", "#D2B48C"][i];
+            bar.style.backgroundColor = ["#00704A", "#004d00", "#0b3d0b"][i];
         });
 
         let pieChart = document.querySelector(".kolowy");
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let polyline = document.querySelector(".liniowy polyline");
         let points = data.liniowy.map((val, i) => `${10 + i * 20},${100 - val}`).join(" ");
         polyline.setAttribute("points", points);
-        polyline.setAttribute("stroke", "#6F4E37");
+        polyline.setAttribute("stroke", "#00704A");
 
         let slupkiBars = document.querySelectorAll(".słupki div");
         slupkiBars.forEach((bar, i) => {
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         let okraglyChart = document.querySelector(".okrągły");
-        okraglyChart.style.background = `conic-gradient(#6F4E37 0% ${data.okragly}%, #F5F5DC ${data.okragly}% 100%)`;
+        okraglyChart.style.background = `conic-gradient(#00704A 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
     }
     updateCharts();

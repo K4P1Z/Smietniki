@@ -181,7 +181,7 @@
             font-family: "Poppins", sans-serif;
             font-size: 1.8rem;
             font-weight: bold;
-            color: #C68E17;
+            color: #00704A;
         }
         
         .graph-container {
@@ -223,6 +223,12 @@
             height: 5vh;
             outline: 0.5px solid black;
             border-radius: 5px;
+        }
+
+        .umieszczenie{
+            margin: 10px;
+            display: flex;
+            justify-content: center;
         }
 
         @media screen and (max-width: 1310px) {
