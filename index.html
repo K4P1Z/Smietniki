@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         okragly: 75
     };
 
-    function updateCharts() {
+    function update() {
         let slupkowyBars = document.querySelectorAll(".słupkowy div");
         slupkowyBars.forEach((bar, i) => {
             bar.style.height = data.slupkowy[i] + "px";
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         okraglyChart.style.background = `conic-gradient(#00704A 0% ${data.okragly}%, #f9f9f9 ${data.okragly}% 100%)`;
         document.querySelector(".okrągły .wartosc").textContent = data.okragly + "%";
     }
-    updateCharts();
+    update();
 });
 
     </script>
